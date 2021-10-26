@@ -4,33 +4,43 @@
 
 bool isPrime(int a)
 {
-	//std::vector<int> divisibles;
-
 	for (int i = 2; i <= (a / 2); i++)
 	{
+		//samo radimm funkciju da vidim da li nije prime, time je taj return true na kraju
 		if (a % i == 0)
 		{
+			//ako je neki od brojeva izmedu 2 i pola od unesenog cjelobrojno djeljiv sa unesenimm brojem, time nije prime number, zato returnamo false
 			return false;
 		}
-		else
-			return true;
 	}
+	return true;
 }
 
 int main()
 {
-	std::cout << "Unesite broj kojeg zelis provjeriti da li je prime" << std::endl;
-	int range1 = 0;
+	std::cout << "Unesite manji, pa veci broj kao raspon u kojem zelis traziti prime brojeve" << std::endl;
+	int range1 = 0, range2 = 0;
 	std::cin >> range1;
+	std::cin >> range2;
 	std::cout << std::endl;
+	std::vector<bool> tvojaMama;
 
-	if (isPrime(range1))
+	for (int i = range1; i <= range2; i++)
 	{
-		std::cout << range1 << " je prime" << std::endl;
+		tvojaMama.push_back(isPrime(i));
 	}
-	else
+
+	for (int i = 0; i < (tvojaMama.size()-1); i++)
 	{
-		std::cout << range1 << " nije prime" << std::endl;
+		if (tvojaMama[i] == true)
+		{
+			std::cout << i+range1 << " je prime" << std::endl;
+		}
+		else
+		{
+			std::cout << i+range1 << " nije prime" << std::endl;
+		}
 	}
+	
 }
 
