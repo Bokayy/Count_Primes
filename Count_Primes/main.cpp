@@ -23,16 +23,16 @@ int main()
 	std::cin >> range1;
 	std::cin >> range2;
 	std::cout << std::endl;
-	std::vector<bool> tvojaMama;
+	std::vector<bool> theVector;
 
 	for (int i = range1; i <= range2; i++)
 	{
-		tvojaMama.push_back(isPrime(i));
+		theVector.push_back(isPrime(i));
 	}
 
-	for (int i = 0; i < (tvojaMama.size()-1); i++)
+	for (int i = 0; i < (theVector.size()-1); i++)
 	{
-		if (tvojaMama[i] == true)
+		if (theVector[i] == true)
 		{
 			std::cout << i+range1 << " je prime" << std::endl;
 		}
